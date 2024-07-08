@@ -13,12 +13,15 @@ module.exports = {
     node: true,
     browser: true,
   },
-  plugins: ['only-warn'],
+  plugins: ['only-warn', 'react'],
   settings: {
     'import/resolver': {
       typescript: {
         project,
       },
+    },
+    react: {
+      version: 'detect',
     },
   },
   ignorePatterns: [
