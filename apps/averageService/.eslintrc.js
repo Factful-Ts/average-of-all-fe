@@ -1,10 +1,18 @@
+require('@factful/eslint-config/patch');
+
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
-  extends: ['@factful/eslint-config/mixins/next.js'],
+  env: { browser: true, es2020: true },
+  extends: ['@factful/eslint-config', '@factful/eslint-config/mixins/next'],
+  settings: {
+    react: {
+      version: '18.3',
+    },
+  },
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    tsconfigRootDir: __dirname,
     project: './tsconfig.json',
+    tsconfigRootDir: __dirname,
   },
 };
