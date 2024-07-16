@@ -1,11 +1,20 @@
 {
   "extends": "@factful/typescript-config/nextjs.json",
   "compilerOptions": {
+    "baseUrl": "./src",
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "paths": {
+      "@/public/*": [
+        "../public/*"
+      ],
+      "@/*": [
+        "*"
+      ]
+    }
   },
   "include": [
     "next-env.d.ts",
