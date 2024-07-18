@@ -3,12 +3,10 @@
 import { ThemeProvider } from 'next-themes';
 import { darkTheme, lightTheme } from './global.css';
 
-const Provider = ({ children }: { children: React.ReactNode }) => {
+export const Provider = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" value={{ light: lightTheme, dark: darkTheme }}>
       {children}
     </ThemeProvider>
   );
 };
-
-export default Provider;
