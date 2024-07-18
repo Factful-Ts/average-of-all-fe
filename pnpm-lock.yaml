@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@vanilla-extract/css':
+        specifier: ^1.15.3
+        version: 1.15.3
     devDependencies:
       eslint:
         specifier: ^8
@@ -29,9 +33,6 @@ importers:
       '@tanstack/react-query-devtools':
         specifier: ^5.51.1
         version: 5.51.1(@tanstack/react-query@5.51.1(react@19.0.0-rc-f994737d14-20240522))(react@19.0.0-rc-f994737d14-20240522)
-      '@vanilla-extract/css':
-        specifier: ^1.15.3
-        version: 1.15.3
       factful-design-system:
         specifier: workspace:*
         version: link:../../packages/factful-design-system
