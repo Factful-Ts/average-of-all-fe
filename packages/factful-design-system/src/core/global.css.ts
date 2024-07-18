@@ -1,21 +1,53 @@
-import { globalStyle, style } from '@vanilla-extract/css';
-import { vars } from './colors.css';
+import { createGlobalTheme, createTheme, createThemeContract, globalStyle } from '@vanilla-extract/css';
+import { colors } from './colors.css';
 
-export const lightTheme: string = style({
-  vars: {
-    '--background-color': vars.lightColors.background,
-    '--text-color': vars.lightColors.text,
+export const global = createGlobalTheme(':root', {
+  fontFamily: {
+    pretendard: `var(--font-pretendard)`,
+  },
+  fontSize: {
+    xLarge: '48px',
+    large: '36px',
+    medium: '28px',
+    regular: '18px',
+    small: '16px',
+    xSmall: '14px',
+  },
+  fontWeight: {
+    normal: '400',
+    medium: '500',
+    large: '700',
   },
 });
 
-export const darkTheme: string = style({
-  vars: {
-    '--background-color': vars.darkColors.background,
-    '--text-color': vars.darkColors.text,
+const themeColor = createThemeContract({
+  color: {
+    primaryBackground: null,
+    secondaryBackground: null,
+    primaryFontColor: null,
+    // secondaryFontColor: null,
+    // borderColor: null,
   },
 });
+
+export const lightTheme: string = createTheme(themeColor, {
+  color: {
+    primaryBackground: colors.lightColors.primary,
+    secondaryBackground: colors.lightColors.secondary,
+    primaryFontColor: colors.lightColors.text,
+  },
+});
+
+export const darkTheme: string = createTheme(themeColor, {
+  color: {
+    primaryBackground: colors.darkColors.primary,
+    secondaryBackground: colors.darkColors.secondary,
+    primaryFontColor: colors.darkColors.text,
+  },
+});
+
+export const vars = { ...global, themeColor };
 
 globalStyle('body', {
-  backgroundColor: 'var(--background-color)',
-  color: 'var(--text-color)',
+  backgroundColor: `hsl(${vars.themeColor.color.primaryBackground})`,
 });

@@ -1,11 +1,11 @@
-export type ColorsType = {
+export type ThemeColorsType = {
   background: string;
   text: string;
   primary: string;
   secondary: string;
 };
 
-export type VarsType = {
-  lightColors: ColorsType;
-  darkColors: ColorsType;
+export type ColorsType = {
+  lightColors: ThemeColorsType;
+  darkColors: ThemeColorsType;
 };

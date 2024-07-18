@@ -20,13 +20,14 @@
     "@factful/eslint-config": "workspace:*",
     "@factful/typescript-config": "workspace:*",
     "@turbo/gen": "^1.12.4",
-    "@types/node": "^20.11.24",
     "@types/eslint": "^8.56.5",
+    "@types/node": "^20.11.24",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
     "tsup": "^8.0.2"
   },
   "dependencies": {
+    "next-themes": "^0.3.0",
     "react": "^18.2.0"
   }
 }
