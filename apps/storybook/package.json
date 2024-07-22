@@ -27,6 +27,7 @@
     "@storybook/react-vite": "^8.1.11",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@vanilla-extract/vite-plugin": "^4.0.13",
     "serve": "^14.2.3",
     "storybook": "^8.1.11",
     "storybook-dark-mode": "^4.0.1"
