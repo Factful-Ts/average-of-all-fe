@@ -1,5 +1,7 @@
-import type { StorybookConfig } from '@storybook/react-vite';
-import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
+import type { StorybookConfig } from '@storybook/nextjs';
+import merge from 'webpack-merge';
+import { VanillaExtractPlugin } from '@vanilla-extract/webpack-plugin';
+import * as path from 'node:path';
 
 const config: StorybookConfig = {
   stories: ['../stories/*.stories.tsx', '../stories/**/*.stories.tsx'],
@@ -7,13 +9,16 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    '@storybook/addon-styling-webpack',
-    '@storybook/addon-themes',
-    'storybook-dark-mode',
+    // '@storybook/addon-styling-webpack',
+    // '@storybook/addon-themes',
+    // 'storybook-dark-mode',
   ],
   framework: {
-    name: '@storybook/react-vite',
+    name: '@storybook/nextjs',
     options: {},
+  },
+  core: {
+    builder: '@storybook/builder-webpack5',
   },
   typescript: {
     check: true,
@@ -21,23 +26,21 @@ const config: StorybookConfig = {
   docs: {
     autodocs: true,
   },
-  async viteFinal(config, { configType }) {
-    return {
-      ...config,
-      define: { 'process.env': {} },
-      plugins: [vanillaExtractPlugin()],
+  webpackFinal: (config) => {
+    return merge(config, {
       resolve: {
-        alias: [
-          {
-            find: 'factful-design-system',
-            replacement: '../../../packages/factful-design-system/',
-          },
-        ],
+        alias: {
+          '@': path.resolve(__dirname, '../../packages/factful-design-system/src'),
+        },
         fallback: {
+          fs: false,
+          net: false,
+          tls: false,
           tty: false,
         },
       },
-    };
+      plugins: [new VanillaExtractPlugin()],
+    });
   },
 };
 

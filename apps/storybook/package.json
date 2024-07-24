@@ -17,19 +17,22 @@
   "devDependencies": {
     "@factful/eslint-config": "workspace:*",
     "@factful/typescript-config": "workspace:*",
-    "@storybook/addon-actions": "^8.1.11",
-    "@storybook/addon-essentials": "^8.1.11",
-    "@storybook/addon-interactions": "^8.1.11",
-    "@storybook/addon-links": "^8.1.11",
+    "@storybook/addon-actions": "8.1.11",
+    "@storybook/addon-essentials": "8.1.11",
+    "@storybook/addon-interactions": "8.1.11",
+    "@storybook/addon-links": "8.1.11",
     "@storybook/addon-styling-webpack": "^1.0.0",
-    "@storybook/addon-themes": "^8.1.11",
-    "@storybook/react": "^8.1.11",
-    "@storybook/react-vite": "^8.1.11",
+    "@storybook/addon-themes": "8.1.11",
+    "@storybook/builder-webpack5": "8.1.11",
+    "@storybook/nextjs": "8.1.11",
+    "@storybook/react": "8.1.11",
+    "@types/node": "^20.14.12",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@vanilla-extract/vite-plugin": "^4.0.13",
+    "@vanilla-extract/webpack-plugin": "^2.3.11",
     "serve": "^14.2.3",
-    "storybook": "^8.1.11",
-    "storybook-dark-mode": "^4.0.1"
+    "storybook": "8.1.11",
+    "storybook-dark-mode": "^4.0.1",
+    "webpack-merge": "^6.0.1"
   }
 }

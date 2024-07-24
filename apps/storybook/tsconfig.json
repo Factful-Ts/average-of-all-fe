@@ -2,6 +2,9 @@
   "extends": "@factful/typescript-config/react-app.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "paths": {
+      "@/*": ["packages/factful-design-system/src/*"]
+    }
   },
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"]
