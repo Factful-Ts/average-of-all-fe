@@ -11,7 +11,9 @@ const preview: Preview = {
       },
     },
   },
+
   decorators: [(story: any) => <Provider>{story()}</Provider>],
+  tags: ['autodocs']
 };
 
 export default preview;

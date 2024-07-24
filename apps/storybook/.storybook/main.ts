@@ -1,3 +1,4 @@
+import { dirname, join } from 'path';
 import type { StorybookConfig } from '@storybook/nextjs';
 import merge from 'webpack-merge';
 import { VanillaExtractPlugin } from '@vanilla-extract/webpack-plugin';
@@ -6,37 +7,26 @@ import * as path from 'node:path';
 const config: StorybookConfig = {
   stories: ['../stories/*.stories.tsx', '../stories/**/*.stories.tsx'],
   addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-    // '@storybook/addon-styling-webpack',
-    // '@storybook/addon-themes',
-    // 'storybook-dark-mode',
+    getAbsolutePath('@storybook/addon-links'),
+    getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('@storybook/addon-interactions'),
   ],
   framework: {
-    name: '@storybook/nextjs',
+    name: getAbsolutePath('@storybook/nextjs'),
     options: {},
   },
   core: {
-    builder: '@storybook/builder-webpack5',
+    builder: getAbsolutePath('@storybook/builder-webpack5'),
   },
   typescript: {
     check: true,
   },
-  docs: {
-    autodocs: true,
-  },
+  docs: {},
   webpackFinal: (config) => {
     return merge(config, {
       resolve: {
         alias: {
           '@': path.resolve(__dirname, '../../packages/factful-design-system/src'),
-        },
-        fallback: {
-          fs: false,
-          net: false,
-          tls: false,
-          tty: false,
         },
       },
       plugins: [new VanillaExtractPlugin()],
@@ -45,3 +35,7 @@ const config: StorybookConfig = {
 };
 
 export default config;
+
+function getAbsolutePath(value: string): any {
+  return dirname(require.resolve(join(value, 'package.json')));
+}
