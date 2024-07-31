@@ -1,6 +1,0 @@
-tsconfig.json
-
-public/**/*
-node_modules/**/*
-
-.github/*
