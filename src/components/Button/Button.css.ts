@@ -13,9 +13,9 @@ export const buttonStyle = style({
 });
 
 export const primaryButton = style({
-  backgroundColor: vars.themeColor.color.primaryBackground,
+  backgroundColor: vars.themeColor.color.primary,
 });
 
 export const secondaryButton = style({
-  backgroundColor: vars.themeColor.color.secondaryBackground,
+  backgroundColor: vars.themeColor.color.secondary,
 });

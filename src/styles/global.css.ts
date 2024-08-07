@@ -22,8 +22,9 @@ export const global = createGlobalTheme(':root', {
 
 const themeColor = createThemeContract({
   color: {
-    primaryBackground: null,
-    secondaryBackground: null,
+    primary: null,
+    primary50: null,
+    secondary: null,
     primaryFontColor: null,
     // secondaryFontColor: null,
     // borderColor: null,
@@ -32,16 +33,18 @@ const themeColor = createThemeContract({
 
 export const lightTheme: string = createTheme(themeColor, {
   color: {
-    primaryBackground: colors.lightColors.primary,
-    secondaryBackground: colors.lightColors.secondary,
+    primary: colors.lightColors.primary,
+    primary50: colors.lightColors.primary50,
+    secondary: colors.lightColors.secondary,
     primaryFontColor: colors.lightColors.text,
   },
 });
 
 export const darkTheme: string = createTheme(themeColor, {
   color: {
-    primaryBackground: colors.darkColors.primary,
-    secondaryBackground: colors.darkColors.secondary,
+    primary: colors.darkColors.primary,
+    primary50: colors.darkColors.primary50,
+    secondary: colors.darkColors.secondary,
     primaryFontColor: colors.darkColors.text,
   },
 });
@@ -49,5 +52,5 @@ export const darkTheme: string = createTheme(themeColor, {
 export const vars = { ...global, themeColor };
 
 globalStyle('body', {
-  backgroundColor: `hsl(${vars.themeColor.color.primaryBackground})`,
+  backgroundColor: `hsl(${vars.themeColor.color.primary})`,
 });
