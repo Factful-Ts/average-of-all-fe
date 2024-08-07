@@ -4,14 +4,18 @@ import { buttonStyle, primaryButton, secondaryButton } from './Button.css';
 import React from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Is this the principal call to action on the page */
+  /** Determines whether the input should be styled as primary, `true` by default */
   primary?: boolean;
-  /** What background color to use */
+
+  /** Sets the background color of the input element */
   backgroundColor?: string;
-  /** How large should the button be? */
+
+  /** Controls input `height` and horizontal `padding`, `'medium'` by default */
   size?: 'small' | 'medium' | 'large';
-  /** Button contents */
+
+  /** Label associated with the button element */
   label: string;
+
   /** Optional click handler */
   onClick?: () => void;
 }
