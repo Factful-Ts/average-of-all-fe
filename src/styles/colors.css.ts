@@ -10,8 +10,8 @@ const lightColors: ThemeColorsType = {
 };
 
 const darkColors: ThemeColorsType = {
-  background: '#000000',
-  text: '#ffffff',
+  background: '#ffffff',
+  text: '#000000',
   primary: '#5a81fa',
   primary50: '#eef2fe',
   secondary: '#2c3d8f',
