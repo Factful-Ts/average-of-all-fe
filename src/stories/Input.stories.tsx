@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Input } from '@/components';
+import { IconSearch } from '/icons';
 
 const meta = {
   title: 'Example/Input',
@@ -11,9 +12,9 @@ const meta = {
   tags: ['autodocs'],
   args: { onClick: fn() },
 } satisfies Meta<typeof Input>;
-
 export default meta;
-type Story = StoryObj<typeof meta>;
+
+type Story = StoryObj<typeof Input>;
 
 export const Primary: Story = {
   args: {
@@ -36,5 +37,11 @@ export const Required: Story = {
 export const Disabled: Story = {
   args: {
     disabled: true,
+  },
+};
+
+export const LeftSection: Story = {
+  args: {
+    leftSection: <IconSearch />,
   },
 };
