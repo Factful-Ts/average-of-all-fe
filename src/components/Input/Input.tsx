@@ -1,5 +1,5 @@
 import { InputHTMLAttributes } from 'react';
-import { inputStyle, inputWrapper } from '@/components/Input/Input.css';
+import * as styles from './Input.css';
 
 type InputPropsBase = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>;
 
@@ -45,9 +45,14 @@ export const Input = ({
   ...rest
 }: InputProps) => {
   return (
-    <div className={inputWrapper}>
+    <div className={styles.inputWrapper({ primary: primary, disabled: disabled })}>
       {leftSection && <div {...leftSectionProps}>{leftSection}</div>}
-      <input className={inputStyle} {...rest} required={required} disabled={disabled} />
+      <input
+        className={styles.inputStyle({ primary: primary, disabled: disabled })}
+        {...rest}
+        required={required}
+        disabled={disabled}
+      />
       {rightSection && <div {...rightSectionProps}>{rightSection}</div>}
     </div>
   );
