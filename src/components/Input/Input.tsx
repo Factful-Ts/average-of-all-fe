@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, useRef } from 'react';
 import * as styles from './Input.css';
 
 type InputPropsBase = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>;
@@ -44,10 +44,23 @@ export const Input = ({
   withErrorStyles,
   ...rest
 }: InputProps) => {
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  const handleWrapperClick = () => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
+
   return (
-    <div className={styles.inputWrapper({ primary: primary, disabled: disabled })}>
+    <div
+      className={styles.inputWrapper({ primary: primary, disabled: disabled })}
+      tabIndex={0}
+      onClick={handleWrapperClick}
+    >
       {leftSection && <div {...leftSectionProps}>{leftSection}</div>}
       <input
+        ref={inputRef}
         className={styles.inputStyle({ primary: primary, disabled: disabled })}
         {...rest}
         required={required}

@@ -17,15 +17,33 @@ export const inputWrapper = recipe({
     primary: {
       true: {
         backgroundColor: vars.themeColor.color.primary50,
+
+        selectors: {
+          '&:focus-within': {
+            boxShadow: `0 0 0 2px ${vars.themeColor.color.primary} inset`,
+          },
+        },
       },
       false: {
         backgroundColor: vars.themeColor.color.secondary50,
+
+        selectors: {
+          '&:focus-within': {
+            boxShadow: `0 0 0 2px ${vars.themeColor.color.secondary} inset`,
+          },
+        },
       },
     },
     disabled: {
       true: {
         backgroundColor: vars.themeColor.color.grayscale200,
         cursor: 'not-allowed',
+
+        selectors: {
+          '&:focus-within': {
+            boxShadow: 'none',
+          },
+        },
       },
     },
   },
