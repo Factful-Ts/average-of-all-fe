@@ -58,7 +58,7 @@ const themeColor = createThemeContract({
     grayscale900: null,
 
     primaryFontColor: null,
-    // secondaryFontColor: null,
+    secondaryFontColor: null,
     // borderColor: null,
   },
 });
@@ -101,6 +101,7 @@ export const lightTheme: string = createTheme(themeColor, {
     grayscale900: colors.lightColors.grayscale900,
 
     primaryFontColor: colors.lightColors.text,
+    secondaryFontColor: colors.lightColors.background,
   },
 });
 
@@ -142,6 +143,7 @@ export const darkTheme: string = createTheme(themeColor, {
     grayscale900: colors.darkColors.grayscale900,
 
     primaryFontColor: colors.darkColors.text,
+    secondaryFontColor: colors.darkColors.background,
   },
 });
 
