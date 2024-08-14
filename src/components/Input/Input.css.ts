@@ -46,6 +46,11 @@ export const inputWrapper = recipe({
         },
       },
     },
+    padding: {
+      false: {
+        padding: 0,
+      },
+    },
   },
 });
 

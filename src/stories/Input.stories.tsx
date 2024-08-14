@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { Input } from '@/components';
+import { Button, Input } from '@/components';
 import { IconSearch } from '/icons';
 
 const meta = {
@@ -43,5 +43,20 @@ export const Disabled: Story = {
 export const LeftSection: Story = {
   args: {
     leftSection: <IconSearch />,
+  },
+};
+
+export const RightSection: Story = {
+  args: {
+    rightSection: <Button label="search" />,
+    hasRightSectionPadding: false,
+  },
+};
+
+export const BothSection: Story = {
+  args: {
+    leftSection: <IconSearch />,
+    rightSection: <Button label="search" />,
+    hasRightSectionPadding: false,
   },
 };

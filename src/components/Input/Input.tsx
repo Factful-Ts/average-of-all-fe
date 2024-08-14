@@ -64,7 +64,11 @@ export const Input = ({
 
   return (
     <div
-      className={styles.inputWrapper({ primary: primary, disabled: disabled })}
+      className={styles.inputWrapper({
+        primary: primary,
+        disabled: disabled,
+        padding: hasLeftSectionPadding && hasRightSectionPadding,
+      })}
       tabIndex={0}
       onClick={handleWrapperClick}
     >
