@@ -5,6 +5,7 @@ import { recipe } from '@vanilla-extract/recipes';
 const buttonStyleBase = style({
   fontSize: 14,
   fontWeight: 700,
+  color: vars.themeColor.color.secondaryFontColor,
   border: 'none',
   borderRadius: '3em',
   cursor: 'pointer',

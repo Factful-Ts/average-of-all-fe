@@ -9,6 +9,9 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** Sets the background color of the button element */
   backgroundColor?: string;
 
+  /** Sets the font color of the button element */
+  fontColor?: string;
+
   /** Controls input `height` and horizontal `padding`, `'medium'` by default */
   size?: 'small' | 'medium' | 'large';
 
@@ -22,6 +25,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = ({
   primary = true,
   size = 'medium',
+  fontColor,
   backgroundColor,
   label,
   ...props
@@ -32,6 +36,7 @@ export const Button = ({
       <style jsx>{`
         button {
           background-color: ${backgroundColor};
+          color: ${fontColor};
         }
       `}</style>
     </button>
