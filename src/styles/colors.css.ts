@@ -5,7 +5,7 @@ const lightColors: ThemeColorsType = {
   background: '#ffffff',
   text: '#000000',
 
-  primary: '#5a81fa',
+  primary: '#285bf8',
   primary50: '#eef2fe',
   primary100: '#d6dffe',
   primary200: '#a4bafc',
@@ -45,7 +45,7 @@ const darkColors: ThemeColorsType = {
   background: '#ffffff',
   text: '#000000',
 
-  primary: '#5a81fa',
+  primary: '#285bf8',
   primary50: '#eef2fe',
   primary100: '#d6dffe',
   primary200: '#a4bafc',
