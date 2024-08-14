@@ -6,7 +6,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** Determines whether the input should be styled as primary, `true` by default */
   primary?: boolean;
 
-  /** Sets the background color of the input element */
+  /** Sets the background color of the button element */
   backgroundColor?: string;
 
   /** Controls input `height` and horizontal `padding`, `'medium'` by default */
@@ -20,14 +20,14 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button = ({
-  primary = false,
+  primary = true,
   size = 'medium',
   backgroundColor,
   label,
   ...props
 }: ButtonProps): JSX.Element => {
   return (
-    <button type="button" className={styles.buttonStyle({ primary: primary })} {...props}>
+    <button type="button" className={styles.buttonStyle({ primary: primary, size: size })} {...props}>
       {label}
       <style jsx>{`
         button {

@@ -5,7 +5,6 @@ import { recipe } from '@vanilla-extract/recipes';
 const buttonStyleBase = style({
   fontSize: 14,
   fontWeight: 700,
-  padding: '11px 20px',
   border: 'none',
   borderRadius: '3em',
   cursor: 'pointer',
@@ -22,6 +21,17 @@ export const buttonStyle = recipe({
       },
       false: {
         backgroundColor: vars.themeColor.color.secondary,
+      },
+    },
+    size: {
+      small: {
+        padding: '12px 14px',
+      },
+      medium: {
+        padding: '16px 24px',
+      },
+      large: {
+        padding: '20px 30px',
       },
     },
   },
