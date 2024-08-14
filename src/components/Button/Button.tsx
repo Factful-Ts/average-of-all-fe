@@ -1,7 +1,6 @@
 'use client';
 
-import { buttonStyle, primaryButton, secondaryButton } from './Button.css';
-import React from 'react';
+import * as styles from './Button.css';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** Determines whether the input should be styled as primary, `true` by default */
@@ -28,7 +27,7 @@ export const Button = ({
   ...props
 }: ButtonProps): JSX.Element => {
   return (
-    <button type="button" className={`${buttonStyle} ${primary ? primaryButton : secondaryButton}`} {...props}>
+    <button type="button" className={styles.buttonStyle({ primary: primary })} {...props}>
       {label}
       <style jsx>{`
         button {
