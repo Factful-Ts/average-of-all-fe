@@ -6,7 +6,7 @@ import { recipe } from '@vanilla-extract/recipes';
 export const inputWrapperBase = style([
   flex({ align: 'center', justify: 'center' }),
   {
-    padding: '14px 30px',
+    padding: '14px 0',
     borderRadius: '27px',
   },
 ]);
@@ -54,19 +54,70 @@ export const inputStyle = recipe({
     backgroundColor: 'transparent',
     border: 'none',
     outline: 'none',
+    padding: '0 24px',
   },
   variants: {
     primary: {
       true: {
         color: vars.themeColor.color.primaryFontColor,
+        caretColor: vars.themeColor.color.primary,
       },
       false: {
         color: vars.themeColor.color.secondaryFontColor,
+        caretColor: vars.themeColor.color.secondaryFontColor,
       },
     },
     disabled: {
       true: {
         cursor: 'not-allowed',
+      },
+    },
+    leftSection: {
+      true: {
+        paddingLeft: 0,
+      },
+    },
+    rightSection: {
+      true: {
+        paddingRight: 0,
+      },
+    },
+  },
+});
+
+const sectionStyleBase = style([
+  flex({ align: 'center', justify: 'center' }),
+  {
+    fill: vars.themeColor.color.primaryFontColor,
+  },
+]);
+
+export const sectionStyle = recipe({
+  base: sectionStyleBase,
+  variants: {
+    leftSection: {
+      true: {
+        paddingLeft: 30,
+        paddingRight: 14,
+      },
+    },
+    rightSection: {
+      true: {
+        paddingRight: 30,
+        paddingLeft: 14,
+      },
+    },
+  },
+});
+
+export const focusedSectionStyle = recipe({
+  variants: {
+    primary: {
+      true: {
+        fill: vars.themeColor.color.primary,
+      },
+      false: {
+        fill: vars.themeColor.color.secondary,
       },
     },
   },

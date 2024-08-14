@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, useRef } from 'react';
+import { InputHTMLAttributes, useCallback, useRef, useState } from 'react';
 import * as styles from './Input.css';
 
 type InputPropsBase = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>;
@@ -13,11 +13,17 @@ interface InputProps extends InputPropsBase {
   /** Props passed down to the `leftSection` element */
   leftSectionProps?: React.ComponentPropsWithoutRef<'div'>;
 
+  /** Indicates whether the input should have padding on the left section, `'true'` by default */
+  hasLeftSectionPadding?: boolean;
+
   /** Content section rendered on the right side of the input */
   rightSection?: React.ReactNode;
 
   /** Props passed down to the `rightSection` element */
   rightSectionProps?: React.ComponentPropsWithoutRef<'div'>;
+
+  /** Indicates whether the input should have padding on the right section, `'true'` by default */
+  hasRightSectionPadding?: boolean;
 
   /** Sets `required` attribute on the `input` element */
   required?: boolean;
@@ -39,18 +45,22 @@ export const Input = ({
   size = 'medium',
   leftSection,
   leftSectionProps,
+  hasLeftSectionPadding = true,
   rightSection,
   rightSectionProps,
+  hasRightSectionPadding = true,
   withErrorStyles = true,
   ...rest
 }: InputProps) => {
+  const [isFocused, setFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const handleWrapperClick = () => {
+  const handleWrapperClick = useCallback(() => {
+    setFocused(true);
     if (inputRef.current) {
       inputRef.current.focus();
     }
-  };
+  }, []);
 
   return (
     <div
@@ -58,15 +68,36 @@ export const Input = ({
       tabIndex={0}
       onClick={handleWrapperClick}
     >
-      {leftSection && <div {...leftSectionProps}>{leftSection}</div>}
+      {leftSection && (
+        <div
+          className={`${styles.sectionStyle({ leftSection: !!leftSection && hasLeftSectionPadding })} ${isFocused ? styles.focusedSectionStyle({ primary: primary }) : ''}`}
+          {...leftSectionProps}
+        >
+          {leftSection}
+        </div>
+      )}
       <input
         ref={inputRef}
-        className={styles.inputStyle({ primary: primary, disabled: disabled })}
-        {...rest}
+        className={styles.inputStyle({
+          primary: primary,
+          disabled: disabled,
+          leftSection: !!leftSection,
+          rightSection: !!rightSection,
+        })}
         required={required}
         disabled={disabled}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
+        {...rest}
       />
-      {rightSection && <div {...rightSectionProps}>{rightSection}</div>}
+      {rightSection && (
+        <div
+          className={`${styles.sectionStyle({ rightSection: !!rightSection && hasRightSectionPadding })} ${isFocused ? styles.focusedSectionStyle({ primary: primary }) : ''}`}
+          {...rightSectionProps}
+        >
+          {rightSection}
+        </div>
+      )}
     </div>
   );
 };
