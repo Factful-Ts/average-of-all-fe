@@ -36,12 +36,12 @@ export const Input = ({
   primary = true,
   required,
   disabled,
-  size,
+  size = 'medium',
   leftSection,
   leftSectionProps,
   rightSection,
   rightSectionProps,
-  withErrorStyles,
+  withErrorStyles = true,
   ...rest
 }: InputProps) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
