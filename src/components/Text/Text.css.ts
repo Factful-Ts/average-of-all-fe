@@ -1,7 +1,10 @@
 import { recipe } from '@vanilla-extract/recipes';
+import { vars } from '@/styles';
 
 export const textStyle = recipe({
-  base: {},
+  base: {
+    color: vars.themeColor.color.primaryFontColor,
+  },
   variants: {
     inline: {
       true: {
