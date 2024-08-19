@@ -20,7 +20,7 @@ interface TextProps extends TextPropsBase {
   span?: boolean;
 }
 
-export const Text = ({ fontSize, color, weight, inline, span, children }: TextProps) => {
+export const Text = ({ fontSize = 14, color, weight, inline = false, span = false, children }: TextProps) => {
   if (span)
     return (
       <span className={styles.textStyle({ inline, weight })}>
