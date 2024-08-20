@@ -1,6 +1,8 @@
 'use client';
 
 import * as styles from './Button.css';
+import { assignInlineVars } from '@vanilla-extract/dynamic';
+import { vars } from '@/styles';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** Determines whether the input should be styled as primary, `true` by default */
@@ -25,20 +27,22 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = ({
   primary = true,
   size = 'medium',
-  fontColor,
+  fontColor = vars.themeColor.color.secondaryFontColor,
   backgroundColor,
   label,
   ...props
 }: ButtonProps): JSX.Element => {
   return (
-    <button type="button" className={styles.buttonStyle({ primary: primary, size: size })} {...props}>
+    <button
+      type="button"
+      className={styles.buttonStyle({ primary: backgroundColor ? 'null' : primary, size: size })}
+      {...props}
+      style={assignInlineVars({
+        [styles.dynamicButtonBackground]: `${backgroundColor}`,
+        [styles.dynamicButtonFontColor]: `${fontColor}`,
+      })}
+    >
       {label}
-      <style jsx>{`
-        button {
-          background-color: ${backgroundColor};
-          color: ${fontColor};
-        }
-      `}</style>
     </button>
   );
 };

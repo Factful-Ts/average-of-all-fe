@@ -1,11 +1,15 @@
-import { style } from '@vanilla-extract/css';
+import { createVar, style } from '@vanilla-extract/css';
 import { vars } from '@/styles';
 import { recipe } from '@vanilla-extract/recipes';
+
+export const dynamicButtonBackground = createVar();
+export const dynamicButtonFontColor = createVar();
 
 const buttonStyleBase = style({
   fontSize: 14,
   fontWeight: 700,
-  color: vars.themeColor.color.secondaryFontColor,
+  color: dynamicButtonFontColor,
+  backgroundColor: dynamicButtonBackground,
   border: 'none',
   borderRadius: '3em',
   cursor: 'pointer',
@@ -23,6 +27,7 @@ export const buttonStyle = recipe({
       false: {
         backgroundColor: vars.themeColor.color.secondary,
       },
+      null: {},
     },
     size: {
       small: {
