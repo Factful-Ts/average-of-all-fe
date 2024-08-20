@@ -1,11 +1,6 @@
 import type { Metadata } from 'next';
 import { Provider } from '@/app/Provider';
-import localFont from 'next/font/local';
-
-const suit = localFont({
-  src: '../../public/fonts/SUIT-Variable.woff2',
-  variable: '--font-suit',
-});
+import { suit } from '/fonts';
 
 export const metadata: Metadata = {
   title: 'Create Next App',

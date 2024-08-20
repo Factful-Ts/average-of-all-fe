@@ -1,16 +1,18 @@
 import { HTMLAttributes } from 'react';
 import * as styles from './Text.css';
+import { assignInlineVars } from '@vanilla-extract/dynamic';
+import { vars } from '@/styles';
 
 type TextPropsBase = HTMLAttributes<HTMLParagraphElement>;
 
 interface TextProps extends TextPropsBase {
-  /** Sets the font size, `14` by default */
+  /** Sets the font size, `16` by default */
   fontSize?: number;
 
-  /** Sets the font color */
+  /** Sets the font color, if light mode `'black'` by default, else `'white'` by default */
   color?: string;
 
-  /** Sets the font weight */
+  /** Sets the font weight, `400` by default */
   weight?: 'normal' | 'bold' | 'lighter' | 'bolder' | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
 
   /** Sets `line-height` to 1 for centering, `false` by default */
@@ -20,29 +22,38 @@ interface TextProps extends TextPropsBase {
   span?: boolean;
 }
 
-export const Text = ({ fontSize = 14, color, weight, inline = false, span = false, children }: TextProps) => {
+export const Text = ({
+  fontSize = 16,
+  color = vars.themeColor.color.primaryFontColor,
+  weight = 400,
+  inline = false,
+  span = false,
+  children,
+}: TextProps) => {
   if (span)
     return (
-      <span className={styles.textStyle({ inline, weight })}>
+      <span
+        className={styles.textStyle({ inline })}
+        style={assignInlineVars({
+          [styles.dynamicFontSize]: `${fontSize}px`,
+          [styles.dynamicFontWeight]: `${weight}`,
+          [styles.dynamicFontColor]: `${color}`,
+        })}
+      >
         {children}
-        <style jsx>{`
-          span {
-            font-size: ${fontSize};
-            color: ${color};
-          }
-        `}</style>
       </span>
     );
 
   return (
-    <p className={styles.textStyle({ inline, weight })}>
+    <p
+      className={styles.textStyle({ inline })}
+      style={assignInlineVars({
+        [styles.dynamicFontSize]: `${fontSize}px`,
+        [styles.dynamicFontWeight]: `${weight}`,
+        [styles.dynamicFontColor]: `${color}`,
+      })}
+    >
       {children}
-      <style jsx>{`
-        span {
-          font-size: ${fontSize};
-          color: ${color};
-        }
-      `}</style>
     </p>
   );
 };
