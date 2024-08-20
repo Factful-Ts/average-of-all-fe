@@ -1,3 +1,5 @@
+'use client';
+
 import { InputHTMLAttributes, useCallback, useRef, useState } from 'react';
 import * as styles from './Input.css';
 
