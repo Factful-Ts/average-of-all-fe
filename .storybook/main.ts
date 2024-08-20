@@ -15,7 +15,7 @@ const config: StorybookConfig = {
     name: '@storybook/nextjs',
     options: {},
   },
-  staticDirs: ['../public'],
+  staticDirs: ['../public', { from: '../public/fonts', to: '/public/fonts' }],
   webpackFinal: async (config) => {
     if (!config.module || !config.module.rules) {
       return config;

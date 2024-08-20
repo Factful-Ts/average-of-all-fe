@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react';
 import { Provider } from '../src/app/Provider';
+import { suit } from '../public/fonts';
 
 const preview: Preview = {
   parameters: {
@@ -11,7 +12,13 @@ const preview: Preview = {
     },
   },
 
-  decorators: [(story: any) => <Provider>{story()}</Provider>],
+  decorators: [
+    (story: any) => (
+      <Provider>
+        <div style={suit.style}>{story()}</div>
+      </Provider>
+    ),
+  ],
 };
 
 export default preview;

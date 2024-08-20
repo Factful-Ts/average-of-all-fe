@@ -10,6 +10,15 @@ const meta = {
   },
   tags: ['autodocs'],
   args: { onClick: fn() },
+  argTypes: {
+    color: {
+      table: {
+        defaultValue: {
+          summary: 'black or white',
+        },
+      },
+    },
+  },
 } satisfies Meta<typeof Text>;
 export default meta;
 
