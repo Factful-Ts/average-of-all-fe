@@ -3,7 +3,7 @@ import { colors } from './colors.css';
 
 export const global = createGlobalTheme(':root', {
   fontFamily: {
-    pretendard: `var(--font-pretendard)`,
+    suit: `var(--font-suit)`,
   },
   fontSize: {
     xLarge: '48px',

@@ -1,5 +1,11 @@
 import type { Metadata } from 'next';
 import { Provider } from '@/app/Provider';
+import localFont from 'next/font/local';
+
+const suit = localFont({
+  src: '../../public/fonts/SUIT-Variable.woff2',
+  variable: '--font-suit',
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -12,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="kr" className={`${suit.variable}`}>
+      <body className={suit.className}>
         <Provider>{children}</Provider>
       </body>
     </html>
