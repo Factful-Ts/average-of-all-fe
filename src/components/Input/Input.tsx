@@ -52,6 +52,7 @@ export const Input = ({
   rightSectionProps,
   hasRightSectionPadding = true,
   withErrorStyles = true,
+  className,
   ...rest
 }: InputProps) => {
   const [isFocused, setFocused] = useState(false);
@@ -66,11 +67,11 @@ export const Input = ({
 
   return (
     <div
-      className={styles.inputWrapper({
+      className={`${className} ${styles.inputWrapper({
         primary: primary,
         disabled: disabled,
         padding: hasLeftSectionPadding && hasRightSectionPadding,
-      })}
+      })}`}
       tabIndex={0}
       onClick={handleWrapperClick}
     >

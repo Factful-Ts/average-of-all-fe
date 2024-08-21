@@ -28,12 +28,15 @@ export const Text = ({
   weight = 400,
   inline = false,
   span = false,
+  className,
   children,
+  ...rest
 }: TextProps) => {
   if (span)
     return (
       <span
-        className={styles.textStyle({ inline, primary: color === 'primary', secondary: color === 'secondary' })}
+        className={`${className} ${styles.textStyle({ inline, primary: color === 'primary', secondary: color === 'secondary' })}`}
+        {...rest}
         style={assignInlineVars({
           [styles.dynamicFontSize]: `${fontSize}px`,
           [styles.dynamicFontWeight]: `${weight}`,
@@ -46,7 +49,8 @@ export const Text = ({
 
   return (
     <p
-      className={styles.textStyle({ inline, primary: color === 'primary', secondary: color === 'secondary' })}
+      className={`${className} ${styles.textStyle({ inline, primary: color === 'primary', secondary: color === 'secondary' })}`}
+      {...rest}
       style={assignInlineVars({
         [styles.dynamicFontSize]: `${fontSize}px`,
         [styles.dynamicFontWeight]: `${weight}`,

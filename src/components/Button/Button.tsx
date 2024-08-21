@@ -30,13 +30,14 @@ export const Button = ({
   fontColor = vars.themeColor.color.secondaryFontColor,
   backgroundColor,
   label,
-  ...props
+  className,
+  ...rest
 }: ButtonProps): JSX.Element => {
   return (
     <button
       type="button"
-      className={styles.buttonStyle({ primary: backgroundColor ? 'null' : primary, size: size })}
-      {...props}
+      className={`${className} ${styles.buttonStyle({ primary: backgroundColor ? 'null' : primary, size: size })}`}
+      {...rest}
       style={assignInlineVars({
         [styles.dynamicButtonBackground]: `${backgroundColor}`,
         [styles.dynamicButtonFontColor]: `${fontColor}`,
