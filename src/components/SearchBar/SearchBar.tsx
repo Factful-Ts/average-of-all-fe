@@ -1,8 +1,16 @@
+import * as styles from './SearchBar.css';
 import { Button, Input } from '@/components';
 import { IconSearch } from '#/icons';
 
-export const SearchBar = () => {
+export const SearchBar = ({ className, ...rest }: { className?: string | undefined }) => {
   return (
-    <Input leftSection={<IconSearch />} rightSection={<Button label="검색하기" />} hasRightSectionPadding={false} />
+    <Input
+      className={className}
+      {...rest}
+      size="large"
+      leftSection={<IconSearch />}
+      rightSection={<Button className={styles.searchButtonStyle} label="검색하기" size="large" />}
+      hasRightSectionPadding={false}
+    />
   );
 };

@@ -70,7 +70,7 @@ export const inputStyle = recipe({
         width: 200,
       },
       large: {
-        width: 390,
+        width: 360,
       },
     },
     primary: {
