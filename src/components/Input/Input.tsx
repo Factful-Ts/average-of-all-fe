@@ -86,6 +86,7 @@ export const Input = ({
       <input
         ref={inputRef}
         className={styles.inputStyle({
+          size: size,
           primary: primary,
           disabled: disabled,
           leftSection: !!leftSection,

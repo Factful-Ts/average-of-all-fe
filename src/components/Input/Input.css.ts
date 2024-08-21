@@ -62,6 +62,17 @@ export const inputStyle = recipe({
     padding: '0 24px',
   },
   variants: {
+    size: {
+      small: {
+        width: 150,
+      },
+      medium: {
+        width: 200,
+      },
+      large: {
+        width: 390,
+      },
+    },
     primary: {
       true: {
         color: vars.themeColor.color.primaryFontColor,

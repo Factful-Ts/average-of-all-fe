@@ -40,6 +40,18 @@ export const Disabled: Story = {
   },
 };
 
+export const Small: Story = {
+  args: {
+    size: 'small',
+  },
+};
+
+export const Large: Story = {
+  args: {
+    size: 'large',
+  },
+};
+
 export const LeftSection: Story = {
   args: {
     leftSection: <IconSearch />,
@@ -48,15 +60,16 @@ export const LeftSection: Story = {
 
 export const RightSection: Story = {
   args: {
-    rightSection: <Button label="search" />,
+    rightSection: <Button label="search" size="large" />,
     hasRightSectionPadding: false,
   },
 };
 
 export const BothSection: Story = {
   args: {
+    size: 'large',
     leftSection: <IconSearch />,
-    rightSection: <Button label="search" />,
+    rightSection: <Button label="search" size="large" />,
     hasRightSectionPadding: false,
   },
 };
