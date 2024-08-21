@@ -1,10 +1,5 @@
-import { Button } from '@/components';
+import { Introduce } from '@/containers';
 
 export default function Home() {
-  return (
-    <>
-      <div>this is home</div>
-      <Button label="버튼" />
-    </>
-  );
+  return <Introduce />;
 }
