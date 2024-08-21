@@ -1,4 +1,3 @@
-import { fn } from '@storybook/test';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Text } from '@/components/Text';
 
@@ -9,7 +8,7 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  args: { onClick: fn() },
+  args: {},
   argTypes: {
     color: {
       table: {
