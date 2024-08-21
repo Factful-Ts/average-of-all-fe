@@ -1,4 +1,10 @@
 import { style } from '@vanilla-extract/css';
-import { flex } from '@/styles/recipes.css';
 
-export const sloganStyle = style([flex({ justify: 'center', align: 'center' })]);
+export const introduceWrapper = style({
+  width: '100vw',
+  paddingTop: 86,
+});
+
+export const sloganStyle = style({
+  textAlign: 'center',
+});
