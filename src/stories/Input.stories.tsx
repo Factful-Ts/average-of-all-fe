@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Button, Input } from '@/components';
-import { IconSearch } from '/icons';
+import { IconSearch } from '#/icons';
 
 const meta = {
   title: 'Example/Input',
