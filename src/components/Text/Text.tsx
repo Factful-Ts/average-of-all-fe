@@ -10,7 +10,7 @@ interface TextProps extends TextPropsBase {
   fontSize?: number;
 
   /** Sets the font color, if light mode `'black'` by default, else `'white'` by default */
-  color?: string;
+  color?: string | 'primary' | 'secondary';
 
   /** Sets the font weight, `400` by default */
   weight?: 'normal' | 'bold' | 'lighter' | 'bolder' | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
@@ -33,7 +33,7 @@ export const Text = ({
   if (span)
     return (
       <span
-        className={styles.textStyle({ inline })}
+        className={styles.textStyle({ inline, primary: color === 'primary', secondary: color === 'secondary' })}
         style={assignInlineVars({
           [styles.dynamicFontSize]: `${fontSize}px`,
           [styles.dynamicFontWeight]: `${weight}`,
@@ -46,7 +46,7 @@ export const Text = ({
 
   return (
     <p
-      className={styles.textStyle({ inline })}
+      className={styles.textStyle({ inline, primary: color === 'primary', secondary: color === 'secondary' })}
       style={assignInlineVars({
         [styles.dynamicFontSize]: `${fontSize}px`,
         [styles.dynamicFontWeight]: `${weight}`,
