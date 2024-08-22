@@ -2,8 +2,8 @@ import { createGlobalTheme, createTheme, createThemeContract, globalStyle } from
 import { colors } from './colors.css';
 
 export const global = createGlobalTheme(':root', {
-  fontFamily: {
-    suit: `var(--font-suit)`,
+  font: {
+    default: 'suit',
   },
   fontSize: {
     xLarge: '50px',
@@ -151,4 +151,5 @@ export const vars = { ...global, themeColor };
 
 globalStyle('body', {
   backgroundColor: `hsl(${vars.themeColor.color.primary})`,
+  fontFamily: vars.font.default,
 });
