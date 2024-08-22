@@ -19,10 +19,10 @@ export const inputWrapper = recipe({
         width: 150,
       },
       medium: {
-        width: 200,
+        width: 300,
       },
       large: {
-        width: 360,
+        width: 557,
       },
     },
     primary: {

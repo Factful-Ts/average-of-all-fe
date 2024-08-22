@@ -1,5 +1,9 @@
 import { style } from '@vanilla-extract/css';
 
+export const searchIconStyle = style({
+  minWidth: 20,
+});
+
 export const searchButtonStyle = style({
-  marginLeft: 13,
+  minWidth: 120,
 });

@@ -8,7 +8,7 @@ export const SearchBar = ({ className, ...rest }: { className?: string | undefin
       className={className}
       {...rest}
       size="large"
-      leftSection={<IconSearch />}
+      leftSection={<IconSearch className={styles.searchIconStyle} />}
       rightSection={<Button className={styles.searchButtonStyle} label="검색하기" size="large" />}
       hasRightSectionPadding={false}
     />
