@@ -4,7 +4,7 @@ import { flex } from '@/styles/recipes.css';
 import { recipe } from '@vanilla-extract/recipes';
 
 export const inputWrapperBase = style([
-  flex({ align: 'center', justify: 'center' }),
+  flex({ align: 'center', justify: 'spaceBetween' }),
   {
     padding: '14px 0',
     borderRadius: '27px',
@@ -14,6 +14,17 @@ export const inputWrapperBase = style([
 export const inputWrapper = recipe({
   base: inputWrapperBase,
   variants: {
+    size: {
+      small: {
+        width: 150,
+      },
+      medium: {
+        width: 200,
+      },
+      large: {
+        width: 360,
+      },
+    },
     primary: {
       true: {
         backgroundColor: vars.themeColor.color.primary50,
@@ -60,19 +71,9 @@ export const inputStyle = recipe({
     border: 'none',
     outline: 'none',
     padding: '0 24px',
+    width: '100%',
   },
   variants: {
-    size: {
-      small: {
-        width: 150,
-      },
-      medium: {
-        width: 200,
-      },
-      large: {
-        width: 360,
-      },
-    },
     primary: {
       true: {
         color: vars.themeColor.color.primaryFontColor,

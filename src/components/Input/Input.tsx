@@ -68,6 +68,7 @@ export const Input = ({
   return (
     <div
       className={`${className} ${styles.inputWrapper({
+        size: size,
         primary: primary,
         disabled: disabled,
         padding: hasLeftSectionPadding && hasRightSectionPadding,
@@ -86,7 +87,6 @@ export const Input = ({
       <input
         ref={inputRef}
         className={styles.inputStyle({
-          size: size,
           primary: primary,
           disabled: disabled,
           leftSection: !!leftSection,
